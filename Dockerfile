@@ -8,7 +8,7 @@ RUN apt-get update && \
     wget --no-check-certificate https://www.rforge.net/Rserve/snapshot/Rserve_1.8-5.tar.gz && \
     R CMD INSTALL Rserve_1.8-5.tar.gz && \
     rm Rserve_1.8-5.tar.gz && \
-    Rscript -e 'install.packages(c("leaps", "tree", "glmnet", "lars", "locfit", "nnet", "randomForest", "adabag", "lmerTest", "ggplot2", "visreg", "dplyr", "car", "vegan"), repo="http://cran.rstudio.com")'
+    Rscript -e 'install.packages(c("leaps", "tree", "glmnet", "lars", "locfit", "nnet", "randomForest", "adabag", "lmerTest", "ggplot2", "visreg", "dplyr", "car", "vegan", "mclust"), repo="http://cran.rstudio.com")'
 
 EXPOSE 6311
 
