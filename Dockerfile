@@ -16,6 +16,12 @@ RUN apt-get update && \
     rm Rserve_1.8-6.tar.gz && \
     Rscript -e 'install.packages(c("leaps", "tree", "glmnet", "lars", "locfit", "nnet", "randomForest", "adabag", "lmerTest", "ggplot2", "visreg", "dplyr", "car", "vegan", "ElemStatLearn", "mclust"), repo="http://cran.rstudio.com")'
 
+VOLUME /localdata
+
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+
 EXPOSE 6311
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD ["R", "-e", "Rserve::run.Rserve(remote=TRUE, auth=FALSE, daemon=FALSE)"]
